@@ -1,0 +1,34 @@
+<!-- add-client-page.component.html -->
+<form [formGroup]="newClientForm" (ngSubmit)="addClient()" class="mb-6 p-4 bg-white dark:bg-gray-900 rounded-lg shadow-md">
+    <div class="grid grid-cols-1 gap-4">
+      <div>
+        <label for="name" class="sr-only">Name</label>
+        <input id="name" formControlName="name" type="text" class="block w-full p-2 border border-gray-300 rounded-md" placeholder="Client Name">
+      </div>
+      <div>
+        <label for="email" class="sr-only">Email</label>
+        <input id="email" formControlName="email" type="email" class="block w-full p-2 border border-gray-300 rounded-md" placeholder="Email">
+      </div>
+      <div>
+        <label for="phone" class="sr-only">Phone</label>
+        <input id="phone" formControlName="phone" type="text" class="block w-full p-2 border border-gray-300 rounded-md" placeholder="Phone">
+      </div>
+      <div>
+        <label for="address" class="sr-only">Address</label>
+        <input id="address" formControlName="address" type="text" class="block w-full p-2 border border-gray-300 rounded-md" placeholder="Address">
+      </div>
+      <div>
+        <label for="status" class="sr-only">Status</label>
+        <select id="status" formControlName="status" class="block w-full p-2 border border-gray-300 rounded-md">
+          <option value="" disabled selected>Select Status</option>
+          <option value="Active">Active</option>
+          <option value="Inactive">Inactive</option>
+          <option value="Pending">Pending</option>
+        </select>
+      </div>
+      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Add Client
+      </button>
+    </div>
+  </form>
+  

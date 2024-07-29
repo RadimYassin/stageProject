@@ -1,0 +1,62 @@
+<!-- table.component.html -->
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="flex justify-between items-center mb-6">
+      <div class="pb-4 bg-white dark:bg-gray-900">
+        <label for="table-search" class="sr-only">Search</label>
+        <div class="relative mt-1">
+          <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+            </svg>
+          </div>
+          <input type="text" id="table-search" (keyup)="applyFilter($event)" class="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for clients">
+        </div>
+      </div>
+      <a routerLink="/NouvelleLivraison" title="Add New" class="group mx-5 cursor-pointer outline-none hover:rotate-90 duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 24 24" class="stroke-blue-400 fill-none group-hover:fill-blue-800 group-active:stroke-blue-200 group-active:fill-blue-600 group-active:duration-0 duration-300">
+          <path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z" stroke-width="1.5"></path>
+          <path d="M8 12H16" stroke-width="1.5"></path>
+          <path d="M12 16V8" stroke-width="1.5"></path>
+        </svg>
+      </a>
+    </div>
+    
+    <table mat-table [dataSource]="dataSource" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef class="p-4"> Client Name </th>
+        <td mat-cell *matCellDef="let client" class="px-6 py-4"> {{ client.name }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef class="p-4"> Email </th>
+        <td mat-cell *matCellDef="let client" class="px-6 py-4"> {{ client.email }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef class="p-4"> Phone </th>
+        <td mat-cell *matCellDef="let client" class="px-6 py-4"> {{ client.phone }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef class="p-4"> Address </th>
+        <td mat-cell *matCellDef="let client" class="px-6 py-4"> {{ client.address }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef class="p-4"> Status </th>
+        <td mat-cell *matCellDef="let client" class="px-6 py-4"> {{ client.status }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef class="p-4"> Action </th>
+        <td mat-cell *matCellDef="let client" class="px-6 py-4">
+          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns" class="bg-gray-50 dark:bg-gray-700"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="bg-white dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons class="p-4"></mat-paginator>
+  </div>
+  

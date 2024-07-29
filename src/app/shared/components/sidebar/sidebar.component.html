@@ -1,0 +1,49 @@
+<aside class="bg-gradient-to-br from-gray-800 to-gray-900 -translate-x-80 fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0">
+  <div class="relative border-b border-white/20">
+    <a class="flex items-center gap-4 py-6 px-8" href="#/">
+      <h6 class="block antialiased tracking-normal font-sans text-base font-semibold leading-relaxed text-white">Logo</h6>
+    </a>
+    <button class="middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-8 max-w-[32px] h-8 max-h-[32px] rounded-lg text-xs text-white hover:bg-white/10 active:bg-white/30 absolute right-0 top-0 grid rounded-br-none rounded-tl-none xl:hidden" type="button">
+      <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true" class="h-5 w-5 text-white">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </span>
+    </button>
+  </div>
+  <div
+    class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+    (click)="toggleChatbox()"
+  >
+    <i class="bi bi-chat-left-text-fill"></i>
+    <div class="flex justify-between w-full items-center">
+      <span class="text-[15px] ml-4 text-gray-200 font-bold">Ventes
+        
+      </span>
+     <span class="flex justify-end items-end  w-1/2">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+      </svg>
+     </span>
+      
+      <span class="text-sm" [class.rotate-180]="isChatboxOpen">
+        <i class="bi bi-chevron-down"></i>
+      </span>
+    </div>
+  </div>
+  <div class="text-left text-sm mt-2 w-4/5 mx-auto text-gray-200 font-bold" *ngIf="isChatboxOpen">
+    <ul class="list-none space-y-1">
+      <li>
+        <a href="/vente" class="block p-2 hover:bg-blue-600 rounded-md">list des livraison</a>
+      </li>
+      <li>
+        <a  href="/NouvelleLivraison" class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md">Nouvelle livraison</a>
+      </li>
+      <li>
+        <a class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md">link 3</a>
+      </li>
+    </ul>
+  </div>
+  
+  
+</aside>
