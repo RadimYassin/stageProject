@@ -1,5 +1,10 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import  LayoutComponent  from './shared/components/layout/layout.component';
+import  DashboardComponent from './business/dashboard/dashboard.component';
+import { ClientComponent } from './client/client.component';
+import { AddClientPageComponent } from './add-client-page/add-client-page.component';
+import { StockComponent } from './stock/stock.component';
 
 export const routes: Routes = [
   {
@@ -8,21 +13,24 @@ export const routes: Routes = [
   },
   {
     path: '',
-    loadComponent: () => import('./shared/components/layout/layout.component').then(m => m.default),
+    component: LayoutComponent,
     children: [
       {
         path: 'dashboard',
-        loadComponent: () => import('./business/dashboard/dashboard.component').then(m => m.default),
+        component: DashboardComponent,
       },
       {
-        path: 'vente',
-        loadComponent: () => import('./vente/vente.component').then(m => m.VenteComponent),
+        path: 'listclient',
+        component: ClientComponent,
       },
       {
-        path: 'NouvelleLivraison',
-        loadComponent: () => import('./add-client-page/add-client-page.component').then(m => m.AddClientPageComponent),
+        path: 'client',
+        component: AddClientPageComponent,
       },
-
+      {
+        path: 'stock',
+        component:StockComponent ,
+      },
     ],
   },
   {

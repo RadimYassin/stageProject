@@ -1,34 +1,97 @@
-<!-- add-client-page.component.html -->
-<form [formGroup]="newClientForm" (ngSubmit)="addClient()" class="mb-6 p-4 bg-white dark:bg-gray-900 rounded-lg shadow-md">
-    <div class="grid grid-cols-1 gap-4">
-      <div>
-        <label for="name" class="sr-only">Name</label>
-        <input id="name" formControlName="name" type="text" class="block w-full p-2 border border-gray-300 rounded-md" placeholder="Client Name">
+<div class="bg-white shadow-md rounded p-6">
+  <form [formGroup]="newClientForm" (ngSubmit)="addClient()">
+    <div class="mb-4 flex items-center">
+      <input type="checkbox" id="supplier" class="mr-2" formControlName="supplier">
+      <label for="supplier">Est-il un fournisseur?</label>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nom</label>
+        <input type="text" id="name" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="NOM">
       </div>
-      <div>
-        <label for="email" class="sr-only">Email</label>
-        <input id="email" formControlName="email" type="email" class="block w-full p-2 border border-gray-300 rounded-md" placeholder="Email">
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="name2" class="block text-gray-700 text-sm font-bold mb-2">Nom 2</label>
+        <input type="text" id="name2" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="name2">
       </div>
-      <div>
-        <label for="phone" class="sr-only">Phone</label>
-        <input id="phone" formControlName="phone" type="text" class="block w-full p-2 border border-gray-300 rounded-md" placeholder="Phone">
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="client_code" class="block text-gray-700 text-sm font-bold mb-2">Client Code</label>
+        <input type="text" id="client_code" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="CLIENT_CODE">
       </div>
-      <div>
-        <label for="address" class="sr-only">Address</label>
-        <input id="address" formControlName="address" type="text" class="block w-full p-2 border border-gray-300 rounded-md" placeholder="Address">
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="category" class="block text-gray-700 text-sm font-bold mb-2">Client Catégorie</label>
+        <input type="text" id="category" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="category">
       </div>
-      <div>
-        <label for="status" class="sr-only">Status</label>
-        <select id="status" formControlName="status" class="block w-full p-2 border border-gray-300 rounded-md">
-          <option value="" disabled selected>Select Status</option>
-          <option value="Active">Active</option>
-          <option value="Inactive">Inactive</option>
-          <option value="Pending">Pending</option>
-        </select>
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="address" class="block text-gray-700 text-sm font-bold mb-2">Adresse</label>
+        <input type="text" id="address" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="address">
       </div>
-      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="city" class="block text-gray-700 text-sm font-bold mb-2">Ville</label>
+        <input type="text" id="city" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="city">
+      </div>
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="contact" class="block text-gray-700 text-sm font-bold mb-2">Contact</label>
+        <input type="text" id="contact" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="contact">
+      </div>
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Tél</label>
+        <input type="text" id="phone" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="phone">
+      </div>
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="gsm" class="block text-gray-700 text-sm font-bold mb-2">GSM</label>
+        <input type="text" id="gsm" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="gsm">
+      </div>
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="fax" class="block text-gray-700 text-sm font-bold mb-2">Fax</label>
+        <input type="text" id="fax" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="fax">
+      </div>
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+        <input type="text" id="email" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="email">
+      </div>
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="ice" class="block text-gray-700 text-sm font-bold mb-2">ICE</label>
+        <input type="text" id="ice" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="ice">
+      </div>
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="representative" class="block text-gray-700 text-sm font-bold mb-2">Représentant</label>
+        <input type="text" id="representative" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="representative">
+      </div>
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="if" class="block text-gray-700 text-sm font-bold mb-2">IF</label>
+        <input type="text" id="if" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="if">
+      </div>
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="patente" class="block text-gray-700 text-sm font-bold mb-2">Patente</label>
+        <input type="text" id="patente" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="patente">
+      </div>
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="rc" class="block text-gray-700 text-sm font-bold mb-2">RC</label>
+        <input type="text" id="rc" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="rc">
+      </div>
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="cnss" class="block text-gray-700 text-sm font-bold mb-2">CNSS</label>
+        <input type="text" id="cnss" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="cnss">
+      </div>
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="credit_limit" class="block text-gray-700 text-sm font-bold mb-2">Seuil Credit</label>
+        <input type="text" id="credit_limit" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="credit_limit">
+      </div>
+      <div class="flex items-center mt-2 w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <input type="checkbox" id="active" class="mr-2" formControlName="active"><label for="active">Actif</label>
+      </div>
+      <div class="w-full max-w-xs p-2 bg-white rounded-lg font-mono">
+        <label for="tarif" class="block text-gray-700 text-sm font-bold mb-2">Tarif</label>
+        <input type="text" id="tarif" class="custom-input w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm bg-gray-100" placeholder="Enter text here" formControlName="tarif">
+      </div>
+    </div>
+    <div class="w-4/5 mt-4 flex justify-between">
+      <button type="submit" class="cursor-pointer transition-all bg-blue-500 text-white px-6 py-2 rounded-lg border-blue-600 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]">
         Add Client
+      </button>
+      <button type="button" class="cursor-pointer w-40 mr-16 transition-all bg-red-500 text-white px-6 py-2 rounded-lg border-red-600 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]" (click)="cancel()">
+        Annuler
       </button>
     </div>
   </form>
-  
+</div>

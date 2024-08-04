@@ -1,4 +1,4 @@
-<aside class="bg-gradient-to-br from-gray-800 to-gray-900 -translate-x-80 fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0">
+<aside class="bg-gradient-to-br overflow-y-auto from-gray-800 to-gray-900 -translate-x-80 fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0">
   <div class="relative border-b border-white/20">
     <a class="flex items-center gap-4 py-6 px-8" href="#/">
       <h6 class="block antialiased tracking-normal font-sans text-base font-semibold leading-relaxed text-white">Logo</h6>
@@ -11,39 +11,98 @@
       </span>
     </button>
   </div>
+  
   <div
     class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
-    (click)="toggleChatbox()"
+    (click)="toggleSection('Vente')"
   >
     <i class="bi bi-chat-left-text-fill"></i>
     <div class="flex justify-between w-full items-center">
-      <span class="text-[15px] ml-4 text-gray-200 font-bold">Ventes
-        
+      <span class="text-[15px] ml-4 text-gray-200 font-bold">Ventes</span>
+      <span class="flex justify-end items-end w-1/2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>
       </span>
-     <span class="flex justify-end items-end  w-1/2">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-      </svg>
-     </span>
-      
-      <span class="text-sm" [class.rotate-180]="isChatboxOpen">
+      <span class="text-sm" [class.rotate-180]="toggleStates.Vente">
         <i class="bi bi-chevron-down"></i>
       </span>
     </div>
   </div>
-  <div class="text-left text-sm mt-2 w-4/5 mx-auto text-gray-200 font-bold" *ngIf="isChatboxOpen">
+  <div class="text-left text-sm mt-2 w-4/5 mx-auto text-gray-200 font-bold" *ngIf="toggleStates.Vente">
     <ul class="list-none space-y-1">
-      <li>
-        <a href="/vente" class="block p-2 hover:bg-blue-600 rounded-md">list des livraison</a>
-      </li>
-      <li>
-        <a  href="/NouvelleLivraison" class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md">Nouvelle livraison</a>
-      </li>
-      <li>
-        <a class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md">link 3</a>
-      </li>
+      <li><a href="/client" class="block p-2 hover:bg-blue-600 rounded-md">client </a></li>
+      <li><a href="/listclient" class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md">list client </a></li>
+      <li><a href="/Devis" class="block p-2 hover:bg-blue-600 rounded-md">Devis </a></li>
+      <li><a href="/listDevis" class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md">list Devis </a></li>
+      <li><a href="/Livraison" class="block p-2 hover:bg-blue-600 rounded-md">Livraison  </a></li>
+      <li><a href="/listLivraison" class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md">listLivraison </a></li>
+      <li><a href="/Facture" class="block p-2 hover:bg-blue-600 rounded-md">Facture</a></li>
+      <li><a href="/listFacture" class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md">listFacture </a></li>
     </ul>
   </div>
-  
-  
+
+  <!-- Additional sections -->
+  <div
+    class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+    (click)="toggleSection('Stock')"
+  >
+    <i class="bi bi-chat-left-text-fill"></i>
+    <div class="flex justify-between w-full items-center">
+      <span class="text-[15px] ml-4 text-gray-200 font-bold">Stock</span>
+      <span class="flex justify-end items-end w-1/2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>
+      </span>
+      <span class="text-sm" [class.rotate-180]="toggleStates.Stock">
+        <i class="bi bi-chevron-down"></i>
+      </span>
+    </div>
+  </div>
+  <div class="text-left text-sm mt-2 w-4/5 mx-auto text-gray-200 font-bold" *ngIf="toggleStates.Stock">
+    <ul class="list-none space-y-1">
+      <li><a href="/Product" class="block p-2 hover:bg-blue-600 rounded-md">Product </a></li>
+      <li><a href="/listProduct" class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md">list Product </a></li>
+     
+    </ul>
+  </div>
+
+    <!-- Additional sections -->
+    <div
+    class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+    (click)="toggleSection('Achat')"
+  >
+    <i class="bi bi-chat-left-text-fill"></i>
+    <div class="flex justify-between w-full items-center">
+      <span class="text-[15px] ml-4 text-gray-200 font-bold">Achat</span>
+      <span class="flex justify-end items-end w-1/2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+        </svg>
+      </span>
+      <span class="text-sm" [class.rotate-180]="toggleStates.Achat">
+        <i class="bi bi-chevron-down"></i>
+      </span>
+    </div>
+  </div>
+  <div class="text-left text-sm mt-2 w-4/5 mx-auto text-gray-200 font-bold" *ngIf="toggleStates.Achat">
+    <ul class="list-none space-y-1">
+      <li><a href="/fournisseur" class="block p-2 hover:bg-blue-600 rounded-md">Fournisseur </a></li>
+
+      <li><a href="/Demande" class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md">Demande  </a></li>
+      <li><a href="/listDemande" class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md">list demande  </a></li>
+
+
+
+
+      <li><a href="/Commande" class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md">Commande  </a></li>
+      <li><a href="/listCommande" class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md">list commande  </a></li>
+
+
+      <li><a href="/Recept" class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md">Recept  </a></li>
+      <li><a href="/listRecept" class="cursor-pointer block p-2 hover:bg-blue-600 rounded-md">list recept  </a></li>
+     
+    </ul>
+  </div>
 </aside>

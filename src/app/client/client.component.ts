@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TableComponent } from '../table/table.component';
-
 @Component({
-  selector: 'app-vente',
+  selector: 'app-client',
   standalone: true,
   imports: [RouterModule,TableComponent],
-  templateUrl: './vente.component.html',
-  styleUrl: './vente.component.css'
+  templateUrl: './client.component.html',
+  styleUrl: './client.component.css'
 })
-export class VenteComponent {
+export class ClientComponent {
 
 }
