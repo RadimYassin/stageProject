@@ -20,7 +20,7 @@ data:any[]=[]
   }
 
   fetchData(){
-this.HttpClient.get('http://31.220.89.29/gestcom-api/api/vente/vente_client').subscribe((data:any)=>{
+this.HttpClient.get('http://31.220.89.29/gestcom-api/api/stock/stock_produit').subscribe((data:any)=>{
   console.log(data);
 })    
   }
