@@ -1,0 +1,29 @@
+<div class=" p-4">
+    <h2 class="text-2xl font-bold mb-4">Add Product</h2>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="w-full ">
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <div *ngFor="let controlName of productForm.controls | keyvalue" class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" [attr.for]="controlName.key">
+            {{ controlName.key }}
+          </label>
+          <input *ngIf="controlName.key !== 'INVENTORIE' && controlName.key !== 'is_active'"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            [id]="controlName.key" [formControlName]="controlName.key" />
+          <input *ngIf="controlName.key === 'INVENTORIE' || controlName.key === 'is_active'"
+            class="mr-2 leading-tight" type="checkbox" [id]="controlName.key" [formControlName]="controlName.key" />
+          <div *ngIf="productForm.get(controlName.key)?.invalid && productForm.get(controlName.key)?.touched">
+            <p class="text-red-500 text-xs italic" *ngFor="let error of formErrors()[controlName.key]">{{ error }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center justify-between">
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" [disabled]="productForm.invalid">
+          Add Product
+        </button>
+      </div>
+      <div *ngIf="formErrors()['general']" class="mt-4">
+        <p class="text-red-500 text-xs italic" *ngFor="let error of formErrors()['general']">{{ error }}</p>
+      </div>
+    </form>
+  </div>
+  

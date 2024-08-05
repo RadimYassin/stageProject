@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 export interface Client {
-  CLIENT_ID: number;
+  CLIENT_ID: string;
   CLIENT_CODE: string;
   NOM: string;
   NOM2: string;
@@ -14,24 +14,25 @@ export interface Client {
   FAXE: string;
   CONTACT: string;
   MAIL: string;
-  LOGO: string | null;
+  LOGO: string;
   IF: string;
   PATENTE: string;
   RC: string;
   CNSS: string;
   SEUIL_CREDIT: string;
   OLD_CREDIT: string;
-  CLIENT_CATEGORIE_ID: number;
+  CLIENT_CATEGORIE_ID: string;
   INS_USER: string;
   INS_DATE: string;
   UPD_USER: string;
   UPD_DATE: string;
-  DEFAUT: number;
-  ACTIF: number;
+  DEFAUT: string;
+  ACTIF: string;
   ICE: string;
-  VendorId: number | null;
-  CONTACT_ID: number;
-  IS_CONFRERE: number | null;
+  VendorId: string;
+  CONTACT_ID: string;
+  IS_CONFRERE: string;
+  [key: string]: any;
 }
 
 @Injectable({

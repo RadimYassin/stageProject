@@ -4,7 +4,8 @@ import  LayoutComponent  from './shared/components/layout/layout.component';
 import  DashboardComponent from './business/dashboard/dashboard.component';
 import { ClientComponent } from './client/client.component';
 import { AddClientPageComponent } from './add-client-page/add-client-page.component';
-import { StockComponent } from './stock/stock.component';
+import { ProductComponent } from './product/product.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 export const routes: Routes = [
   {
@@ -28,8 +29,12 @@ export const routes: Routes = [
         component: AddClientPageComponent,
       },
       {
-        path: 'stock',
-        component:StockComponent ,
+        path: 'listProduct',
+        component:ProductComponent ,
+      },
+      {
+        path: 'addProduct',
+        component:AddProductComponent ,
       },
     ],
   },
